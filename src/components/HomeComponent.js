@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom';
 import useWindowSize from './useWindowSize';
 import { useNavigate } from 'react-router-dom';
 import CreateCollegeAboutUs from './CreateCollegeAboutUs';
+import CreateCollegeExplore from './CreateCollegeExplore';
 
 function HomeComponent({ isAdmin, User, setUser }) {
   
@@ -160,41 +161,106 @@ const createCollegeButtonStyleMobile = {
 
   return (
     <>
-   <div className='cta' style={isMobile ? backgroundStyleMobile : backgroundStyle}>
-        <Container>
-          <Row className='d-flex justify-content-start'>
-            <Col>
-              <div className='content container row back ms-5 mt-5'>
-                <div className='col-8 ml-2 text-left' style={isMobile ? titleStyleMobile : titleStyle}>
-                  <h1 className='title'   >
-                    The Easy Way to Find  </h1><h1 className='title' >the Perfect College for You</h1>
-                  <div className='text-left  mt-4 fs-5  mb-4 '  style={isMobile ? subtitleStyleMobile : {}} >
-                    {/* <b> */}
-                    <h5 className='subtitle' >
-                      Unleash Your College Dreams: Discover, Create, and Review with CollegeWeb </h5>
-                    <h5 className='subtitle'> Your Gateway to Higher Education Success!
-
-
-                    </h5>
-
-                      <div className=''   style={{
-                        alignContent: 'center',
-                        // display: 'grid',
-                        // justifyItems:'center',
-                        // justifyContent: 'center',
-                        // alignItems: 'center',
-                        
-                        ...(isMobile ? createCollegeButtonStyleMobile : subtitleStyle),
-                      }}>
-                       <p style={{alignItems:"center"}} ><CreateCollege isUser={isUser} setUser={setUser} /></p>
-                      </div>
-                  </div>
-                </div>
+<div className='cta' style={isMobile ? backgroundStyleMobile : backgroundStyle}>
+  <Container>
+    <Row className='d-flex justify-content-start'>
+      <Col>
+        <div className='content container row back ms-5 mt-5'>
+          <div className='col-12 col-md-8 ml-2 text-left' style={isMobile ? titleStyleMobile : titleStyle}>
+            <h1 className='title'>
+              The Easy Way to Find the Perfect College for You
+            </h1>
+            <div className='text-left mt-4 fs-5 mb-4' style={isMobile ? subtitleStyleMobile : {}}>
+              <h5 className='subtitle'>
+                Unleash Your College Dreams: Discover, Create, and Review with CollegeWeb
+              </h5>
+              <h5 className='subtitle'>
+                Your Gateway to Higher Education Success!
+              </h5>
+              <div
+                className=''
+                style={{
+                  display: 'flex',
+                  justifyContent: 'flex-start',
+                  alignItems: 'center', 
+                  marginTop: '3rem',
+                }}
+              >
+                <p>
+                  <button
+                    style={{
+                      backgroundColor: '#0D9F8C',
+                      padding: '10px 20px',
+                      border: 'none',
+                      width: '150px',
+                      height: '50px',
+                      borderRadius: '4px',
+                      color: '#fff',
+                      position: 'relative',
+                      overflow: 'hidden',
+                      zIndex: '1',
+                      transition: 'transform 0.3s ease',
+                      transform: hover[2] ? 'scale(1.1)' : 'scale(1)',
+                    }}
+                    onMouseEnter={() => {
+                      const newHover = [...hover];
+                      newHover[2] = true;
+                      setHover(newHover);
+                    }}
+                    onMouseLeave={() => {
+                      const newHover = [...hover];
+                      newHover[2] = false;
+                      setHover(newHover);
+                    }}
+                    onClick={() => {
+                      navigate('/login');
+                    }}
+                  >
+                    <span
+                      style={{
+                        position: 'relative',
+                        zIndex: '2',
+                      }}
+                    >
+                      Sign Up
+                    </span>
+                    {hover[2] && (
+                      <span
+                        style={{
+                          position: 'absolute',
+                          top: '0',
+                          left: '0',
+                          width: '100%',
+                          height: '100%',
+                          backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                          zIndex: '1',
+                        }}
+                      ></span>
+                    )}
+                    {hover[2] && (
+                      <span
+                        style={{
+                          position: 'absolute',
+                          top: '0',
+                          right: '0',
+                          width: '100%',
+                          height: '100%',
+                          backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                          zIndex: '1',
+                        }}
+                      ></span>
+                    )}
+                  </button>
+                </p>
               </div>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+            </div>
+          </div>
+        </div>
+      </Col>
+    </Row>
+  </Container>
+</div>
+
 
       <div style={styles.homeContainer}>
         <div style={styles.card}>
@@ -246,7 +312,7 @@ const createCollegeButtonStyleMobile = {
             <button className={`card-button glow-on-hover`}
               style={hover[1] ? { ...styles.cardButton, ...styles.cardButtonHover } : styles.cardButton}
               onClick={()=>{
-                navigate("/colleges/:collegeId")
+                navigate("/createCollegeExplore")
               }}
               onMouseEnter={() => {
                 const newHover = [...hover];

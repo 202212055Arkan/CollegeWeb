@@ -18,6 +18,7 @@ import NoticeList from './NoticeList';
 import PostList from './PostList';
 import Search from './Search';
 import UserLogin from './login';
+import CreateCollegeExplore from './CreateCollegeExplore';
 import CreateCollege from './CreateCollege';
 import CollegeCategory from './CollegeCategory';
 import CollegeNavBar from './CollegeNavBar';
@@ -188,6 +189,8 @@ function MainComponent(props) {
                         
                         <Route  path='/contactus' element={<ContactUs />}></Route>
                         <Route  path='/createCollegeAboutUs' element={<CreateCollegeAboutUs />}></Route>
+                        <Route  path='/createCollegeExplore' element={<CreateCollegeExplore />}></Route>
+
                     
                     {/* <div style={{height:"100%",width:"100%",backgroundColor:"#27374D"}}> */}
                         <Route  path='/colleges' element={<CollegeList />}style={{height:"100vh",width:"100%",backgroundColor:"#27374D"}}   ></Route>
